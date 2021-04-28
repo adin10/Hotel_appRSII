@@ -1,0 +1,9 @@
+C:\Users\Adin\source\repos\SeminarskiRSII\SeminarskiRSII.Model\bin\Debug\netstandard2.0\SeminarskiRSII.Model.deps.json
+C:\Users\Adin\source\repos\SeminarskiRSII\SeminarskiRSII.Model\bin\Debug\netstandard2.0\SeminarskiRSII.Model.dll
+C:\Users\Adin\source\repos\SeminarskiRSII\SeminarskiRSII.Model\bin\Debug\netstandard2.0\SeminarskiRSII.Model.pdb
+C:\Users\Adin\source\repos\SeminarskiRSII\SeminarskiRSII.Model\obj\Debug\netstandard2.0\SeminarskiRSII.Model.AssemblyInfoInputs.cache
+C:\Users\Adin\source\repos\SeminarskiRSII\SeminarskiRSII.Model\obj\Debug\netstandard2.0\SeminarskiRSII.Model.AssemblyInfo.cs
+C:\Users\Adin\source\repos\SeminarskiRSII\SeminarskiRSII.Model\obj\Debug\netstandard2.0\SeminarskiRSII.Model.csproj.CoreCompileInputs.cache
+C:\Users\Adin\source\repos\SeminarskiRSII\SeminarskiRSII.Model\obj\Debug\netstandard2.0\SeminarskiRSII.Model.dll
+C:\Users\Adin\source\repos\SeminarskiRSII\SeminarskiRSII.Model\obj\Debug\netstandard2.0\SeminarskiRSII.Model.pdb
+C:\Users\Adin\source\repos\SeminarskiRSII\SeminarskiRSII.Model\obj\Debug\netstandard2.0\SeminarskiRSII.Model.csprojAssemblyReference.cache
