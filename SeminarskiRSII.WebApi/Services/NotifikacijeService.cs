@@ -10,37 +10,35 @@ using System.Threading.Tasks;
 
 namespace SeminarskiRSII.WebApi.Services
 {
-    public class NotifikacijeService : INotifikacijeService
-    {
-        private readonly SeminarskiRSIIBazaContext _context;
-        private readonly IMapper _mapper;
-        public NotifikacijeService(SeminarskiRSIIBazaContext context,IMapper mapper)
+   
+        public class NotifikacijaService : BaseCRUDService<Model.Notifikacije, NotifikacijeSearchRequest, Database.Notifikacije, NotifikacijeInsertRequest, NotifikacijeInsertRequest>
         {
-            _context = context;
-            _mapper = mapper;
-        }
-        public List<Model.Notifikacije> get(NotifikacijeSearchRequest search)
-        {
-            var query = _context.Notifikacije.Include(x => x.Novost).AsQueryable();
-
-            if (search != null)
+            public NotifikacijaService(SeminarskiRSIIBazaContext context, IMapper mapper) : base(context, mapper)
             {
-                if (!string.IsNullOrWhiteSpace(search.Naslov))
-                {
-                    query = query.Where(l => l.Naslov.StartsWith(search.Naslov));
-                }
-
-                if (search.NovostId.HasValue)
-                {
-                    query = query.Where(l => l.NovostId == search.NovostId.Value);
-                }
             }
 
-            var lista = query.OrderByDescending(l => l.DatumSlanja).ToList();
+            public override List<Model.Notifikacije> get(NotifikacijeSearchRequest search)
+            {
+                var query = _context.Notifikacije.Include(x => x.Novost).AsQueryable();
 
-            return _mapper.Map<List<Model.Notifikacije>>(lista);
+                if (search != null)
+                {
+                    if (!string.IsNullOrWhiteSpace(search.Naslov))
+                    {
+                        query = query.Where(l => l.Naslov.StartsWith(search.Naslov));
+                    }
 
-        }
+                    if (search.NovostId.HasValue)
+                    {
+                        query = query.Where(l => l.NovostId == search.NovostId.Value);
+                    }
+                }
+
+                var lista = query.OrderByDescending(l => l.DatumSlanja).ToList();
+
+                return _mapper.Map<List<Model.Notifikacije>>(lista);
+
+         }
     }
  }
 

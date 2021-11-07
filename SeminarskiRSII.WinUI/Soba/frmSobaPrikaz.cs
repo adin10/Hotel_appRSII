@@ -30,7 +30,6 @@ namespace SeminarskiRSII.WinUI.Soba
             {
                 var list = await _service.get<List<Model.Soba>>(null);
                 MessageBox.Show("Unesite broj sobe koju zelite pretraziti");
-
             }
             else
             {

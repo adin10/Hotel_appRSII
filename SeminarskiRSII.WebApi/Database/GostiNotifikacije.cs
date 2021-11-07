@@ -7,7 +7,7 @@ namespace SeminarskiRSII.WebApi.Database
     {
         public int Id { get; set; }
         public int? NotifikacijeId { get; set; }
-        public int NotifikacijaId { get; set; }
+        //public int NotifikacijaId { get; set; }
         public int GostId { get; set; }
         public bool Pregledana { get; set; }
 

@@ -7,5 +7,6 @@ namespace SeminarskiRSII.Model.Requests
    public class RecenzijaSearchRequest
     {
         public int? ocjena { get; set; }
+        public int? BrojSobe { get; set; }
     }
 }

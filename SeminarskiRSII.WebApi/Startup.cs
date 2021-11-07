@@ -17,13 +17,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
-
 using Newtonsoft.Json.Serialization;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.Extensions.FileProviders;
 using System.IO;
 using Microsoft.AspNetCore.Http;
+using SeminarskiRSII.Model.Requests;
 
 namespace SeminarskiRSII.WebApi
 {
@@ -51,7 +50,7 @@ namespace SeminarskiRSII.WebApi
             var connection = @"Server=.;Database=SeminarskiRSIIBaza;Trusted_Connection=True;ConnectRetryCount=0";
             services.AddDbContext<SeminarskiRSIIBazaContext>(options => options.UseSqlServer(connection));
             services.AddAuthentication("BasicAuthentication")
-           .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
+               .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
             services.AddAutoMapper(typeof(Startup));
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -65,6 +64,16 @@ namespace SeminarskiRSII.WebApi
                     Scheme = "basic",
                     In = ParameterLocation.Header,
                     Description = "Basic Authorization header using the Bearer scheme."
+                });
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference {
+                                Type = ReferenceType.SecurityScheme,
+                                Id = "basic" }
+                        }, new string[] { } }
                 });
             });
             services.AddScoped<ILoginService, LoginService>();
@@ -85,17 +94,23 @@ namespace SeminarskiRSII.WebApi
             services.AddScoped<IDrzavaService, DrzavaService>();
             services.AddScoped<IGradService, GradService>();
 
-            //services.AddScoped<ICRUDService<Model.Notifikacije, NotifikacijeSearchRequest, NotifikacijeInsertRequest, NotifikacijeInsertRequest>, NotifikacijaService>();
-            services.AddScoped<INotifikacijeService, NotifikacijeService>();
+            services.AddScoped<ICRUDService<Model.Novosti, NovostiSearchRequest, NovostiInsertRequest, NovostiInsertRequest>, NovostiService>();
+            //services.AddScoped<INovostiService, NovostiService>();
 
-            services.AddScoped<INovostiService, NovostiService>();
+
+            services.AddScoped<ICRUDService<Model.Notifikacije, NotifikacijeSearchRequest, NotifikacijeInsertRequest, NotifikacijeInsertRequest>, NotifikacijaService>();
+            //services.AddScoped<INotifikacijeService, NotifikacijeService>();
+
+
+
             services.AddScoped<IGostService, GostService>();
             services.AddScoped<ICjenovnikService, CjenovnikService>();
             services.AddScoped<IRezervacijaService, RezervacijaService>();
             services.AddScoped<IRecenzijaService, RecenzijaService>();
 
-            services.AddScoped<IGostiNotifikacijeService, GostiNotifikacijeService>();
-          
+            services.AddScoped<ICRUDService<Model.GostiNotifikacije, GostiNotifikacijeSearchRequest, GostiNotifikacijeInsertRequest, GostiNotifikacijeInsertRequest>, GostiNotifikacijeService>();
+            //services.AddScoped<IGostiNotifikacijeService, GostiNotifikacijeService>();
+
 
             // Enable CORS         KORS OMOGUĆAVA DA POKRENEMO API NA VISE RAZLICITIH PROJEKATA
             services.AddCors(options =>
@@ -135,7 +150,6 @@ namespace SeminarskiRSII.WebApi
                 FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), @"Images")),
                 RequestPath = new PathString("/Images")
             });
-
 
             app.UseEndpoints(endpoints =>
             {

@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:vm="clr-namespace:HotelRSII.Project.ViewModels" xmlns:local="clr-namespace:HotelRSII.Project.Converters"
+             mc:Ignorable="d"
+             x:Class="HotelRSII.Project.Views.SobaDetaljiPage">
+    <ContentPage.BindingContext>
+        <vm:SobaDetaljiViewModel></vm:SobaDetaljiViewModel>
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:ImageConverter x:Key="imgConv"></local:ImageConverter>
+            <!--Da bi mogli ucitati sliku moramo ukljuciti resourceDictonary-->
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand">
+            <StackLayout>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="200"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="200"/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <StackLayout Grid.ColumnSpan="2">
+                        <!--stek za ucitavanje slike-->
+                        <Image HeightRequest="200" WidthRequest="400" Source="{Binding Soba.Slika, Converter={StaticResource imgConv}}"></Image>
+                        <!--Ucitavanje slike-->
+                    </StackLayout>
+                    <Label Grid.Row="1" Grid.Column="0" Text="Broj sobe:"></Label>
+                    <Label Grid.Row="1" Grid.Column="1" Text="{Binding Soba.BrojSobe}"></Label>
+                    <Label Grid.Row="2" Grid.Column="0" Text="Broj sprata:"></Label>
+                    <Label Grid.Row="2" Grid.Column="1" Text="{Binding Soba.BrojSprata}"></Label>
+                    <Label Grid.Row="3" Grid.Column="0" Text="Opis:"></Label>
+                    <Label Grid.Row="3" Grid.Column="1" Text="{Binding Soba.OpisSobe}"></Label>
+                </Grid>
+                <Button Clicked="RezervisiSobu" Text="Rezervisite sobu!"></Button>
+                
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

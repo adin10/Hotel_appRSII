@@ -12,5 +12,6 @@ namespace SeminarskiRSII.WebApi.Services
         Model.SobaOsoblje getById(int id);
         Model.SobaOsoblje Insert(SobaOsobljeInsertRequest insert);
         Model.SobaOsoblje Update(int id, SobaOsobljeInsertRequest insert);
+        Model.SobaOsoblje Delete(int id);
     }
 }

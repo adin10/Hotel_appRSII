@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewmodels="clr-namespace:HotelRSII.Project.ViewModels" x:DataType="viewmodels:RezervacijaViewModel"
+             x:Class="HotelRSII.Project.Views.RezervacijaPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout VerticalOptions="CenterAndExpand" Padding="15">
+                <Label Grid.ColumnSpan="2" TextColor="#009BDB" HorizontalOptions="Center" FontSize="22">Rezervisite sobu</Label>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+
+
+                    <Label Margin ="10, 0, 0, 0" VerticalTextAlignment="Center" Grid.Row="0">Gost</Label>
+                    <Picker  ItemsSource="{Binding gostiList }"  SelectedItem="{Binding SelectedGost}" Grid.Row="0" Grid.Column="1"></Picker>
+
+                    <Label Margin ="10, 0, 0, 0" VerticalTextAlignment="Center" Grid.Row="1">Soba broj:</Label>
+                    <Picker ItemsSource="{Binding sobeList }" SelectedItem="{Binding SelectedSoba}" Grid.Row="1" Grid.Column="1"></Picker>
+
+                    <Label Margin ="10, 0, 0, 0" VerticalTextAlignment="Center" Grid.Row="2">Datum rezervacije</Label>
+                    <DatePicker  Grid.Row="2" Grid.Column="1" Date="{Binding StartDate} "></DatePicker>
+
+                    <Label  Margin ="10, 0, 0, 0" VerticalTextAlignment="Center" Grid.Row="3">Zavrsetak rezervacije</Label>
+                    <DatePicker  Grid.Row="3" Grid.Column="1" Date="{Binding EndDate}"></DatePicker>
+                    
+                </Grid>
+                <Label/>
+                <StackLayout>
+                    <!--<Button x:Name="RegistrujSe"  BackgroundColor="LightBlue" TextColor="White" Clicked="RegistrujSe_Clicked" Text="Registruj se"></Button>-->
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" >
+                        <!--<Label  TextColor="#009BDB" Text="Imate korisnički nalog?" VerticalTextAlignment="Center"/>-->
+                        
+                        <Button BackgroundColor="LightBlue" FontSize="22" TextColor="White" Command="{Binding RezervisiCommand}" Text="Rezervisi"></Button>
+                    </StackLayout>
+
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

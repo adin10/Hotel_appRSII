@@ -69,7 +69,6 @@ namespace SeminarskiRSII.WinUI.Osoblje
                 txtEmail.Text = g.Email;
                 txtKorisnickoIme.Text = g.KorisnickoIme;
                 pbOsoblje.Image = Helper.ImageHelper.FromByteToImage(g.Slika);
-
             }
         }
 

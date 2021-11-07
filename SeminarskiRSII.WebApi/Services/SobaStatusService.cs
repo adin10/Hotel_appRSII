@@ -18,6 +18,15 @@ namespace SeminarskiRSII.WebApi.Services
             _context = context;
             _mapper = mapper;
         }
+
+        public Model.SobaStatus Delete(int id)
+        {
+            var entity = _context.SobaStatus.Find(id);
+            _context.SobaStatus.Remove(entity);
+            _context.SaveChanges();
+            return _mapper.Map<Model.SobaStatus>(entity);
+        }
+
         public List<Model.SobaStatus> get()
         {
             var list = _context.SobaStatus.ToList();

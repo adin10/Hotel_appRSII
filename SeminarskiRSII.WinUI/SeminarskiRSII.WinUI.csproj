@@ -39,6 +39,24 @@
     <Reference Include="Flurl.Http, Version=2.4.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Flurl.Http.2.4.2\lib\net46\Flurl.Http.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1449.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1449.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1449.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1449.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1449.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -93,6 +111,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPocetna.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,6 +148,52 @@
       <DependentUpon>frmGradPrikaz.cs</DependentUpon>
     </Compile>
     <Compile Include="Helper\ImageHelper.cs" />
+    <Compile Include="Izvjestaji\dsRecenzije.cs">
+      <DependentUpon>dsRecenzije.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Izvjestaji\dsRecenzije.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsRecenzije.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Izvjestaji\dsSobe.cs">
+      <DependentUpon>dsSobe.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Izvjestaji\dsSobe.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsSobe.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Izvjestaji\frmOdabir.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Izvjestaji\frmOdabir.Designer.cs">
+      <DependentUpon>frmOdabir.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Izvjestaji\frmRecenzijeDetaljiIzvjestaj.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Izvjestaji\frmRecenzijeDetaljiIzvjestaj.Designer.cs">
+      <DependentUpon>frmRecenzijeDetaljiIzvjestaj.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Izvjestaji\frmRecenzijeIzvjestaj.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Izvjestaji\frmRecenzijeIzvjestaj.Designer.cs">
+      <DependentUpon>frmRecenzijeIzvjestaj.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Izvjestaji\frmSobeDetaljiIzvjestaj.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Izvjestaji\frmSobeDetaljiIzvjestaj.Designer.cs">
+      <DependentUpon>frmSobeDetaljiIzvjestaj.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Izvjestaji\frmSobeIzvjestaj.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Izvjestaji\frmSobeIzvjestaj.Designer.cs">
+      <DependentUpon>frmSobeIzvjestaj.cs</DependentUpon>
+    </Compile>
     <Compile Include="Notifikacije\frmNotifikacijePrikaz.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -216,6 +286,7 @@
     <Compile Include="Soba\frmSobaPrikaz.Designer.cs">
       <DependentUpon>frmSobaPrikaz.cs</DependentUpon>
     </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="VrstaOsoblja\frmVrstaOsobljaDetalji.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -240,6 +311,9 @@
     <EmbeddedResource Include="Drzava\frmDrzavaPrikaz.resx">
       <DependentUpon>frmDrzavaPrikaz.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmPocetna.resx">
       <DependentUpon>frmPocetna.cs</DependentUpon>
     </EmbeddedResource>
@@ -255,6 +329,23 @@
     <EmbeddedResource Include="Grad\frmGradPrikaz.resx">
       <DependentUpon>frmGradPrikaz.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Izvjestaji\frmOdabir.resx">
+      <DependentUpon>frmOdabir.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Izvjestaji\frmRecenzijeDetaljiIzvjestaj.resx">
+      <DependentUpon>frmRecenzijeDetaljiIzvjestaj.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Izvjestaji\frmRecenzijeIzvjestaj.resx">
+      <DependentUpon>frmRecenzijeIzvjestaj.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Izvjestaji\frmSobeDetaljiIzvjestaj.resx">
+      <DependentUpon>frmSobeDetaljiIzvjestaj.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Izvjestaji\frmSobeIzvjestaj.resx">
+      <DependentUpon>frmSobeIzvjestaj.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Izvjestaji\rptRecenzije.rdlc" />
+    <EmbeddedResource Include="Izvjestaji\rptSobe.rdlc" />
     <EmbeddedResource Include="Notifikacije\frmNotifikacijePrikaz.resx">
       <DependentUpon>frmNotifikacijePrikaz.cs</DependentUpon>
     </EmbeddedResource>
@@ -315,6 +406,28 @@
     <EmbeddedResource Include="VrstaOsoblja\frmVrstaOsobljaPrikaz.resx">
       <DependentUpon>frmVrstaOsobljaPrikaz.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Izvjestaji\dsRecenzije.xsc">
+      <DependentUpon>dsRecenzije.xsd</DependentUpon>
+    </None>
+    <None Include="Izvjestaji\dsRecenzije.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsRecenzije.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Izvjestaji\dsRecenzije.xss">
+      <DependentUpon>dsRecenzije.xsd</DependentUpon>
+    </None>
+    <None Include="Izvjestaji\dsSobe.xsc">
+      <DependentUpon>dsSobe.xsd</DependentUpon>
+    </None>
+    <None Include="Izvjestaji\dsSobe.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsSobe.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Izvjestaji\dsSobe.xss">
+      <DependentUpon>dsSobe.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -335,6 +448,20 @@
       <Name>SeminarskiRSII.Model</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

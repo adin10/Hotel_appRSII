@@ -80,7 +80,7 @@ namespace SeminarskiRSII.WinUI.Drzava
             this.groupBox1.Size = new System.Drawing.Size(414, 339);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Drzave";
+            this.groupBox1.Text = "Lista drzava";
             // 
             // dgwDrzave
             // 
@@ -112,7 +112,7 @@ namespace SeminarskiRSII.WinUI.Drzava
             // 
             this.Naziv.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Naziv.DataPropertyName = "Naziv";
-            this.Naziv.HeaderText = "Naziv";
+            this.Naziv.HeaderText = "Naziv drzave";
             this.Naziv.Name = "Naziv";
             this.Naziv.ReadOnly = true;
             // 

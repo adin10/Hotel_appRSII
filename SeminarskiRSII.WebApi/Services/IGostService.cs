@@ -12,5 +12,7 @@ namespace SeminarskiRSII.WebApi.Services
         Model.Gost getById(int id);
         Model.Gost Insert(GostiInsertRequest requst);
         Model.Gost Update(int id, GostiInsertRequest requst);
+        Model.Gost AuthenticirajGosta(string username, string pass);
+
     }
 }

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HotelRSII.Project.Views.NovostiDetaljiPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout>
+                <Label Text="{Binding Novost.Naslov}"
+                   FontSize="Header"
+                HorizontalOptions="CenterAndExpand" />
+                <Label  Text="{Binding Novost.Sadrzaj}" Margin="15"
+                   FontSize="Medium"></Label>
+                <Label>Objavu napisao </Label>
+                <Label FontSize="15" Text="{Binding Novost.Osoblje.Ime}"></Label>
+                <Label FontSize="15" Text="{Binding Novost.Osoblje.Prezime}"></Label>
+                <Label HorizontalTextAlignment="End">Datum objave</Label>
+                <Label HorizontalTextAlignment="End"  Text="{Binding Novost.DatumObjave,StringFormat='{0:MMMM dd, yy}'}"></Label>
+            </StackLayout>
+              
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

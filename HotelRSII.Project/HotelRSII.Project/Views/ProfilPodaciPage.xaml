@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewModels="clr-namespace:HotelRSII.Project.ViewModels"
+             x:Class="HotelRSII.Project.Views.ProfilPodaciPage">
+    <ContentPage.BindingContext>
+        <viewModels:ProfilPodaciViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label FontSize="Large" HorizontalOptions="Center" Text="Vaši podaci!"></Label>
+
+            <Label Text="Ime"></Label>
+            <Entry Text="{Binding FirstName}" IsReadOnly="True"></Entry>
+
+            <Label Text="Prezime"></Label>
+            <Entry Text="{Binding LastName}" IsReadOnly="True"></Entry>
+
+            <Label Text="Telefon"></Label>
+            <Entry Text="{Binding Phone}" IsReadOnly="True"></Entry>
+
+            <Label Text="Email"></Label>
+            <Entry Text="{Binding Email}" IsReadOnly="True" ></Entry>
+
+            <Label Text="Korisnicko ime"></Label>
+            <Entry Text="{Binding Username}" IsReadOnly="True"></Entry>
+
+            <Label Text="Grad"></Label>
+            <Entry Text="{Binding City}" IsReadOnly="True"></Entry>
+
+            <Button Clicked="Button_Clicked_Edit" Text="Uredite vaše podatke" Font="Bold,17" ></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

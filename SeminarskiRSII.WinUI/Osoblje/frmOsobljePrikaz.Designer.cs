@@ -115,7 +115,7 @@ namespace SeminarskiRSII.WinUI.Osoblje
             this.groupBox1.Size = new System.Drawing.Size(649, 343);
             this.groupBox1.TabIndex = 21;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Uposleni:";
+            this.groupBox1.Text = "Pregled svih uposlenih";
             // 
             // dgwOsoblje
             // 

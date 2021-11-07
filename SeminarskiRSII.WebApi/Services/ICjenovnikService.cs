@@ -12,5 +12,6 @@ namespace SeminarskiRSII.WebApi.Services
         Model.Cjenovnik getById(int id);
         Model.Cjenovnik Insert(CijenaInsertRequest insert);
         Model.Cjenovnik Update(int id, CijenaInsertRequest update);
+        Model.Cjenovnik Delete(int id);
     }
 }

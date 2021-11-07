@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:vm="clr-namespace:HotelRSII.Project.ViewModels" xmlns:local="clr-namespace:HotelRSII.Project.Converters"
+             x:Class="HotelRSII.Project.Views.RezervacijaDetaljiPage">
+
+    <ContentPage.BindingContext>
+        <vm:RezervacijaDetaljiViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:ImageConverter x:Key="imgConv"></local:ImageConverter>
+            <!--Da bi mogli ucitati sliku moramo ukljuciti resourceDictonary-->
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label FontSize="Large" HorizontalOptions="Center" Text="Pregled vaših rezervacija"></Label>
+
+            <ListView ItemsSource="{Binding BookingList}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="20" Orientation="Horizontal">
+                                <StackLayout Orientation="Vertical">
+                                    <StackLayout>
+                                        <!--stek za ucitavanje slike-->
+                                        <Image HeightRequest="200" WidthRequest="400" Source="{Binding Soba.Slika, Converter={StaticResource imgConv}}"></Image>
+                                        <!--Ucitavanje slike-->
+                                    </StackLayout>
+                                    <StackLayout Grid.Row="1" Orientation="Horizontal" Spacing="6">
+                                        <Label FontSize="Large" Text="Broj sobe: "
+										Style="{DynamicResource LargeLabel}" />
+                                        <Label Text="{Binding Soba.BrojSobe}" 
+										LineBreakMode="NoWrap" 
+										Style="{DynamicResource ListItemTextStyle}" 
+										FontSize="Large"  />
+                                    </StackLayout>
+
+                                    <StackLayout Grid.Row="1" Orientation="Horizontal" Spacing="6">
+                                        <Label Text="Datum rezervacije : "
+										Style="{DynamicResource LargeLabel}" />
+                                        <Label Text="{Binding DatumRezervacije,StringFormat='{0:dd-MMM-yy}'}" 
+										
+										LineBreakMode="NoWrap" 
+										Style="{DynamicResource ListItemTextStyle}" 
+										FontSize="16" />
+                                    </StackLayout>
+
+
+                                    <StackLayout Grid.Row="1" Orientation="Horizontal" Spacing="6">
+                                        <Label Text="Zavrsetak rezervacije : "
+										Style="{DynamicResource LargeLabel}" />
+                                        <Label Text="{Binding ZavrsetakRezervacije, StringFormat='{0:dd-MMM-yy}'}" 
+										LineBreakMode="NoWrap" 
+										Style="{DynamicResource ListItemTextStyle}" 
+										FontSize="16" />
+                                    </StackLayout>
+                                    <Button Clicked="RecezijaBoravka" Text="Ostavite recenziju!"></Button>
+
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -49,7 +49,7 @@ namespace SeminarskiRSII.WinUI.Recenzija
                 recenzija.gostID = id;
             }
             var idobj2 = cmbSoba.SelectedValue;
-            if (int.TryParse(idobj.ToString(), out int id2))
+            if (int.TryParse(idobj2.ToString(), out int id2))
             {
                 recenzija.sobaID = id2;
             }

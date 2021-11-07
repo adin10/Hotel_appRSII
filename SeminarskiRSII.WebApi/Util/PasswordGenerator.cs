@@ -11,28 +11,23 @@ namespace SeminarskiRSII.WebApi.Util
     {
         public static string GenerateSalt()
         {
-            byte[] arr = new byte[16];
-
-            RNGCryptoServiceProvider crypto = new RNGCryptoServiceProvider();
-
-            crypto.GetBytes(arr);
-
-            return Convert.ToBase64String(arr);
+            var buf = new byte[16];
+            (new RNGCryptoServiceProvider()).GetBytes(buf);
+            return Convert.ToBase64String(buf);
         }
 
-        public static string GenerateHash(string lozinka, string salt)
+        public static string GenerateHash(string salt, string password)
         {
-            byte[] arrLozinka = Encoding.Unicode.GetBytes(lozinka);
-            byte[] arrSalt = Convert.FromBase64String(salt);
+            byte[] src = Convert.FromBase64String(salt);
+            byte[] bytes = Encoding.Unicode.GetBytes(password);
+            byte[] dst = new byte[src.Length + bytes.Length];
 
-            byte[] arr = new byte[arrLozinka.Length + arrSalt.Length];
+            System.Buffer.BlockCopy(src, 0, dst, 0, src.Length);
+            System.Buffer.BlockCopy(bytes, 0, dst, src.Length, bytes.Length);
 
-            System.Buffer.BlockCopy(arrLozinka, 0, arr, 0, arrLozinka.Length);
-            System.Buffer.BlockCopy(arrSalt, 0, arr, arrLozinka.Length, arrSalt.Length);
-
-            HashAlgorithm alg = HashAlgorithm.Create("SHA1");
-
-            return Convert.ToBase64String(alg.ComputeHash(arr));
+            HashAlgorithm algorithm = HashAlgorithm.Create("SHA1");
+            byte[] inArray = algorithm.ComputeHash(dst);
+            return Convert.ToBase64String(inArray);
         }
     }
 }

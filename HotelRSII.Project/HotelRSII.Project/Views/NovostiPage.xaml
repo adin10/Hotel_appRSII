@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:ViewModels="clr-namespace:HotelRSII.Project.ViewModels;assembly=HotelRSII.Project"
+             mc:Ignorable="d"
+             x:Class="HotelRSII.Project.Views.NovostiPage">
+    <ContentPage.BindingContext>
+        <ViewModels:NovostiViewModel></ViewModels:NovostiViewModel>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Lista svih novosti"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+            <StackLayout>
+                <Label Text="Novosti!"
+                   FontSize="22"
+                HorizontalOptions="CenterAndExpand" />
+                <StackLayout>
+                    <ListView  ItemsSource="{Binding NovostiList}"
+                           ItemSelected="ListView_ItemSelected">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout Padding="15">
+                                        <StackLayout Orientation="Horizontal" >
+                                            <Label FontSize="22" Text="{Binding Naslov}" HorizontalOptions="Start"
+                                                Style="{DynamicResource ListItemTextStyle}" ></Label>
+
+                                            <StackLayout Orientation="Horizontal">
+                                                <Label Text="{Binding DatumObjave, StringFormat='{0:MMMM dd, yy}'}" HorizontalOptions="End"
+                                                         Style="{DynamicResource ListItemTextStyle}" ></Label>
+
+                                            </StackLayout>
+                                        </StackLayout>
+                                        <StackLayout>
+                                            <!--<Label Text="{Binding Osoblje.Ime}" ></Label>-->
+                                            <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
+                                                <Image Source="eye2.jpg" WidthRequest="20" HeightRequest="10"></Image>
+                                                <Label Text="{Binding BrojPregleda}"></Label>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

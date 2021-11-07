@@ -6,9 +6,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
 namespace SeminarskiRSII.WebApi.Controllers
 {
+    //[Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class OsobljeController : ControllerBase
@@ -28,13 +30,15 @@ namespace SeminarskiRSII.WebApi.Controllers
         {
             return _service.getByID(id);
         }
+        //[Authorize(Roles = "Direktor")]
         [HttpPost]
         public Model.Osoblje Insert(OsobljeInsertRequest insert)
         {
             return _service.Insert(insert);
         }
+        //[Authorize(Roles = "Direktor")]
         [HttpPut("{id}")]
-        public Model.Osoblje Update(int id, OsobljeInsertRequest update)
+        public Model.Osoblje Update(int id, [FromBody] OsobljeInsertRequest update)
         {
             return _service.Update(id, update);
         }

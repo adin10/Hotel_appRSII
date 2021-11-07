@@ -88,5 +88,69 @@ namespace SeminarskiRSII.WinUI.Soba
         {
 
         }
+
+        private void txtBrojSobe_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtBrojSobe.Text))
+            {
+                errorProvider.SetError(txtBrojSobe, "Obavezno polje");
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(txtBrojSobe, null);
+            }
+        }
+
+        private void txtBrojSprata_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtBrojSprata.Text))
+            {
+                errorProvider.SetError(txtBrojSprata, "Obavezno polje");
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(txtBrojSprata, null);
+            }
+        }
+
+        private void txtInformacije_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtInformacije.Text))
+            {
+                errorProvider.SetError(txtInformacije, "Obavezno polje");
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(txtInformacije, null);
+            }
+        }
+
+        private void cmbStatusID_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(cmbStatusID.Text))
+            {
+                errorProvider.SetError(cmbStatusID, "Obavezno polje");
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(cmbStatusID, null);
+            }
+        }
+
+        private void pbSoba_Validating(object sender, CancelEventArgs e)
+        {
+            if (pbSoba.Image == null)
+            {
+                errorProvider.SetError(pbSoba, "Obavezno polje");
+            }
+            else
+            {
+                errorProvider.SetError(pbSoba, null);
+            }
+        }
     }
 }

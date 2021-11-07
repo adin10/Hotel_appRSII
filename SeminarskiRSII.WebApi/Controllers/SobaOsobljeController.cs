@@ -38,6 +38,11 @@ namespace SeminarskiRSII.WebApi.Controllers
         {
             return _service.Update(id, update);
         }
+        [HttpDelete("{id}")]
+        public Model.SobaOsoblje Delete(int id)
+        {
+            return _service.Delete(id);
+        }
     }
 
     //public class SobaOsobljeController : BaseController<Model.SobaOsoblje, object>

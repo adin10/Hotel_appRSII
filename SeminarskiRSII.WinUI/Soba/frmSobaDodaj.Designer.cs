@@ -29,6 +29,7 @@ namespace SeminarskiRSII.WinUI.Soba
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnSnimi = new System.Windows.Forms.Button();
             this.pbSoba = new System.Windows.Forms.PictureBox();
             this.btnUcitajSobu = new System.Windows.Forms.Button();
@@ -46,7 +47,9 @@ namespace SeminarskiRSII.WinUI.Soba
             this.txtPictureName = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pbSoba)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSnimi
@@ -70,6 +73,7 @@ namespace SeminarskiRSII.WinUI.Soba
             this.pbSoba.TabIndex = 47;
             this.pbSoba.TabStop = false;
             this.pbSoba.Click += new System.EventHandler(this.pbSoba_Click);
+            this.pbSoba.Validating += new System.ComponentModel.CancelEventHandler(this.pbSoba_Validating);
             // 
             // btnUcitajSobu
             // 
@@ -89,6 +93,7 @@ namespace SeminarskiRSII.WinUI.Soba
             this.cmbStatusID.Name = "cmbStatusID";
             this.cmbStatusID.Size = new System.Drawing.Size(270, 21);
             this.cmbStatusID.TabIndex = 45;
+            this.cmbStatusID.Validating += new System.ComponentModel.CancelEventHandler(this.cmbStatusID_Validating);
             // 
             // label5
             // 
@@ -106,6 +111,7 @@ namespace SeminarskiRSII.WinUI.Soba
             this.txtInformacije.Name = "txtInformacije";
             this.txtInformacije.Size = new System.Drawing.Size(270, 20);
             this.txtInformacije.TabIndex = 43;
+            this.txtInformacije.Validating += new System.ComponentModel.CancelEventHandler(this.txtInformacije_Validating);
             // 
             // txtBrojSprata
             // 
@@ -113,6 +119,7 @@ namespace SeminarskiRSII.WinUI.Soba
             this.txtBrojSprata.Name = "txtBrojSprata";
             this.txtBrojSprata.Size = new System.Drawing.Size(270, 20);
             this.txtBrojSprata.TabIndex = 42;
+            this.txtBrojSprata.Validating += new System.ComponentModel.CancelEventHandler(this.txtBrojSprata_Validating);
             // 
             // txtBrojSobe
             // 
@@ -120,6 +127,7 @@ namespace SeminarskiRSII.WinUI.Soba
             this.txtBrojSobe.Name = "txtBrojSobe";
             this.txtBrojSobe.Size = new System.Drawing.Size(270, 20);
             this.txtBrojSobe.TabIndex = 41;
+            this.txtBrojSobe.Validating += new System.ComponentModel.CancelEventHandler(this.txtBrojSobe_Validating);
             // 
             // label4
             // 
@@ -200,6 +208,10 @@ namespace SeminarskiRSII.WinUI.Soba
             this.label7.TabIndex = 49;
             this.label7.Text = "Picture name";
             // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
+            // 
             // frmSobaDodaj
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -225,6 +237,7 @@ namespace SeminarskiRSII.WinUI.Soba
             this.Text = "frmSobaDodaj";
             this.Load += new System.EventHandler(this.frmSobaDodaj_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbSoba)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -249,5 +262,6 @@ namespace SeminarskiRSII.WinUI.Soba
         private System.Windows.Forms.TextBox txtPictureName;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

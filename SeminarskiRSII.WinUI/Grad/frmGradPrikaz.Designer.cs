@@ -82,7 +82,7 @@ namespace SeminarskiRSII.WinUI.Grad
             this.groupBox1.Size = new System.Drawing.Size(497, 356);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Gradovi:";
+            this.groupBox1.Text = "Lista gradova";
             // 
             // dgwGradovi
             // 
@@ -140,7 +140,7 @@ namespace SeminarskiRSII.WinUI.Grad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(533, 450);
+            this.ClientSize = new System.Drawing.Size(520, 450);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtpretraga);
             this.Controls.Add(this.btnPrikaz);

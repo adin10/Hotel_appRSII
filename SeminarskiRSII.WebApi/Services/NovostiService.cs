@@ -9,59 +9,33 @@ using System.Threading.Tasks;
 
 namespace SeminarskiRSII.WebApi.Services
 {
-    public class NovostiService:INovostiService
+    public class NovostiService : BaseCRUDService<Model.Novosti, NovostiSearchRequest, Database.Novosti, NovostiInsertRequest, NovostiInsertRequest>
     {
-        private readonly SeminarskiRSIIBazaContext _context;
-        private readonly IMapper _mapper;
-
-        public NovostiService(SeminarskiRSIIBazaContext context, IMapper mapper)
+        public NovostiService(SeminarskiRSIIBazaContext context, IMapper mapper) : base(context, mapper)
         {
-            _context = context;
-            _mapper = mapper;
         }
-        public List<Model.Novosti> get(NovostiSearchRequest search)
+
+        public override List<Model.Novosti> get(NovostiSearchRequest search)
         {
-            var query = _context.Novosti.Include(o => o.Osoblje).AsQueryable();
+            var query = _context.Novosti.Include(x => x.Osoblje).AsQueryable();
+
             if (search != null)
             {
-                if (search.OsobljeId.HasValue)
+                if (!string.IsNullOrWhiteSpace(search.Naslov))
                 {
-                    query = query.Where(o => o.OsobljeId == search.OsobljeId);
+                    query = query.Where(l => l.Naslov.StartsWith(search.Naslov));
+                }
+                //search.DatumObjave = DateTime.Now;
+
+                if (search.DatumObjave != null)
+                {
+                    query = query.Where(l => l.DatumObjave.Value.Date == search.DatumObjave.Value.Date);
                 }
             }
-            if (!string.IsNullOrWhiteSpace(search?.Naslov))
-            {
-                query = query.Where(n => n.Naslov.StartsWith(search.Naslov));
-            }
-            if (!string.IsNullOrWhiteSpace(search?.Sadrzaj))
-            {
-                query = query.Where(s => s.Sadrzaj.StartsWith(search.Sadrzaj));
-            }
-            var list = query.ToList();
-            return _mapper.Map<List<Model.Novosti>>(list);
-        }
 
-        public Model.Novosti getByID(int ID)
-        {
-            var id = _context.Novosti.Find(ID);
-            return _mapper.Map<Model.Novosti>(id);
+            var lista = query.OrderByDescending(x => x.DatumObjave).ToList();
 
-        }
-
-        public Model.Novosti Insert(NovostiInsertRequest insert)
-        {
-            var dodaj = _mapper.Map<Database.Novosti>(insert);
-            _context.Novosti.Add(dodaj);
-            _context.SaveChanges();
-            return _mapper.Map<Model.Novosti>(dodaj);
-        }
-
-        public Model.Novosti Update(int ID, NovostiInsertRequest update)
-        {
-            var entity = _context.Novosti.Find(ID);
-            _mapper.Map(update, entity);
-            _context.SaveChanges();
-            return _mapper.Map<Model.Novosti>(entity);
+            return _mapper.Map<List<Model.Novosti>>(lista);
         }
     }
 }

@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:ViewModels="clr-namespace:HotelRSII.Project.ViewModels;assembly=HotelRSII.Project"
+             xmlns:local="clr-namespace:HotelRSII.Project.Converters"
+             mc:Ignorable="d"    
+             x:Class="HotelRSII.Project.Views.SobePage">
+    <ContentPage.BindingContext>
+        <ViewModels:SobeViewModel></ViewModels:SobeViewModel>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:ImageConverter x:Key="imgConv"></local:ImageConverter>   <!--Da bi mogli ucitati sliku moramo ukljuciti resourceDictonary-->
+        </ResourceDictionary>
+    </ContentPage.Resources>
+<ContentPage.Content>
+        <StackLayout>
+            <Label Text="Lista svih soba"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+            <Label>Filter: </Label>
+            <Picker ItemsSource="{Binding sobaStatusList}" SelectedItem="{Binding selectedSobaStatus}" ItemDisplayBinding="{Binding Status}"></Picker> <!--Filtriranje po statusu sobe( jel slobodna)-->
+            <ListView ItemsSource="{Binding sobeList}" ItemSelected="ListView_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10" Orientation="Horizontal">                               <!--glavni stek, horizontalni prikaz s lijeva na desno-->
+
+                                <StackLayout>
+                                    <!--stek za ucitavanje slike-->
+                                    <Image HeightRequest="200" WidthRequest="400" Source="{Binding Slika, Converter={StaticResource imgConv}}"></Image>
+                                    <!--Ucitavanje slike-->
+                                </StackLayout>
+                                <StackLayout Orientation="Vertical">
+                                    <Label>Broj sobe</Label>
+                                    <Label Text="{Binding BrojSobe}" 
+                                d:Text="{Binding .}"
+                                LineBreakMode="NoWrap" 
+                                Style="{DynamicResource ListItemTextStyle}" 
+                                FontSize="15" />
+                                    <Label>Broj sprata</Label>
+                                    <Label Text="{Binding BrojSprata}" 
+                                d:Text="{Binding .}"
+                                LineBreakMode="NoWrap" 
+                                Style="{DynamicResource ListItemTextStyle}" 
+                                FontSize="15" />
+                                    <Label>status sobe</Label>
+                                    <Label Text="{Binding SobaStatus.Status}" 
+                                d:Text="item descripton"
+                                LineBreakMode="NoWrap"
+                                Style="{DynamicResource ListItemTextStyle}"
+                                FontSize="13" />
+                                    <Label>Za više informacija kliknite na sliku</Label>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

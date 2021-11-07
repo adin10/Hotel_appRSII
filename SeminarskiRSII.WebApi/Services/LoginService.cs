@@ -1,8 +1,11 @@
 ﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using SeminarskiRSII.WebApi.Database;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace SeminarskiRSII.WebApi.Services
@@ -19,11 +22,11 @@ namespace SeminarskiRSII.WebApi.Services
         }
         public Model.Osoblje Authenticiraj(string username, string pass)
         {
-            var user = _context.Osoblje.FirstOrDefault(x => x.KorisnickoIme == username);
+            var user = _context.Osoblje.Include(x=>x.OsobljeUloge).FirstOrDefault(x => x.KorisnickoIme == username);
 
             if (user != null)
             {
-                var newHash = Util.PasswordGenerator.GenerateHash(pass, user.LozinkaSalt);
+                var newHash = Util.PasswordGenerator.GenerateHash(user.LozinkaSalt,pass);
 
                 if (newHash == user.LozinkaHash)
                 {
@@ -39,7 +42,7 @@ namespace SeminarskiRSII.WebApi.Services
 
             if (user != null)
             {
-                var newHash = Util.PasswordGenerator.GenerateHash(pass, user.LozinkaSalt);
+                var newHash = Util.PasswordGenerator.GenerateHash(user.LozinkaSalt,pass);
 
                 if (newHash == user.LozinkaHash)
                 {
@@ -48,6 +51,27 @@ namespace SeminarskiRSII.WebApi.Services
             }
 
             return null;
+        }
+
+        //____________________________________________________
+        public static string GenerateSalt()
+        {
+            var buf = new byte[16];
+            (new RNGCryptoServiceProvider()).GetBytes(buf);
+            return Convert.ToBase64String(buf);
+        }
+        public static string GenerateHash(string salt, string password)
+        {
+            byte[] src = Convert.FromBase64String(salt);
+            byte[] bytes = Encoding.Unicode.GetBytes(password);
+            byte[] dst = new byte[src.Length + bytes.Length];
+
+            System.Buffer.BlockCopy(src, 0, dst, 0, src.Length);
+            System.Buffer.BlockCopy(bytes, 0, dst, src.Length, bytes.Length);
+
+            HashAlgorithm algorithm = HashAlgorithm.Create("SHA1");
+            byte[] inArray = algorithm.ComputeHash(dst);
+            return Convert.ToBase64String(inArray);
         }
     }
 }

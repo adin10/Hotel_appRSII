@@ -6,7 +6,7 @@ namespace SeminarskiRSII.Model.Requests
 {
     public class GostiNotifikacijeSearchRequest
     {
-        public int? PutnikId { get; set; }
+        public int? GostId { get; set; }
         public int? NotifikacijaId { get; set; }
     }
 }

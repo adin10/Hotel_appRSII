@@ -32,7 +32,7 @@ namespace SeminarskiRSII.WebApi.Controllers
                     {
                         file.CopyTo(stream);
                     }
-                    return Ok(new { dbPath });
+                    return Ok(new { dbPath,fileName,fullPath });
                 }
                 else
                 {

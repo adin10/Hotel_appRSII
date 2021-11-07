@@ -12,5 +12,7 @@ namespace SeminarskiRSII.WebApi.Services
         Model.SobaStatus getByID(int id);
         Model.SobaStatus Insert(SobaStatusInsertRequest insert);
         Model.SobaStatus Update(int id, SobaStatusInsertRequest update);
+
+        Model.SobaStatus Delete(int id);
     }
 }

@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:ViewModels="clr-namespace:HotelRSII.Project.ViewModels;assembly=HotelRSII.Project" xmlns:local="clr-namespace:HotelRSII.Project.Converters"
+             mc:Ignorable="d"
+             x:Class="HotelRSII.Project.Views.CjenovnikPage">
+    <ContentPage.BindingContext>
+        <ViewModels:CjenovnikViewModel></ViewModels:CjenovnikViewModel>  <!--Spajanje sa viewModelom-->
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:ImageConverter x:Key="imgConv"></local:ImageConverter>
+            <!--Da bi mogli ucitati sliku moramo ukljuciti resourceDictonary-->
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand">
+            <ListView ItemsSource="{Binding CijeneList}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <StackLayout>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="200"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="200"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackLayout Grid.ColumnSpan="2">
+                        <!--stek za ucitavanje slike-->
+                        <Image HeightRequest="200" WidthRequest="400" Source="{Binding Soba.Slika, Converter={StaticResource imgConv}}"></Image>
+                        <!--Ucitavanje slike-->
+                    </StackLayout>
+                    <Label Grid.Row="1" Grid.Column="0" Text="Broj sobe:"></Label>
+                    <Label Grid.Row="1" Grid.Column="1" Text="{Binding Soba.BrojSobe}"></Label>
+                    <Label Grid.Row="2" Grid.Column="0" Text="Broj dana:"></Label>
+                    <Label Grid.Row="2" Grid.Column="1" Text="{Binding BrojDana}"></Label>
+                    <Label Grid.Row="3" Grid.Column="0" Text="Cijena:"></Label>
+                    <Label Grid.Row="3" Grid.Column="1" Text="{Binding Cijena}"></Label>
+                </Grid>
+            </StackLayout>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollView>
+                            
+    </ContentPage.Content>
+</ContentPage>

@@ -11,10 +11,13 @@ namespace SeminarskiRSII.WebApi.Mappers
     {
         public Mapper()
         {
-            CreateMap<Database.Osoblje, Model.Osoblje>();
-            CreateMap<OsobljeInsertRequest, Database.Osoblje>();
+            CreateMap<Database.Osoblje, Model.Osoblje>().ReverseMap();
+            CreateMap<OsobljeInsertRequest, Database.Osoblje>().ReverseMap();
+            CreateMap<Database.Gost, Model.Osoblje>().ReverseMap();
 
             CreateMap<Database.VrstaOsoblja, Model.VrstaOsoblja>();
+            CreateMap<Database.VrstaOsoblja, Model.VrstaOsoblja>().ReverseMap();
+
             CreateMap<VrstaOsobljaInsertRequest, Database.VrstaOsoblja>();
 
             CreateMap<Database.SobaStatus, Model.SobaStatus>();
@@ -32,10 +35,10 @@ namespace SeminarskiRSII.WebApi.Mappers
             CreateMap<Database.Grad, Model.Grad>();
             CreateMap<GradInsertRequest, Database.Grad>();
 
-            CreateMap<Database.Novosti, Model.Novosti>();
-            CreateMap<NovostiInsertRequest, Database.Novosti>();
+            CreateMap<Database.OsobljeUloge, Model.OsobljeUloge>().ReverseMap();
 
-            CreateMap<Database.Gost, Model.Gost>();
+
+            CreateMap<Database.Gost, Model.Gost>().ReverseMap();
             CreateMap<GostiInsertRequest, Database.Gost>();
 
             CreateMap<Database.Cjenovnik, Model.Cjenovnik>();
@@ -47,12 +50,23 @@ namespace SeminarskiRSII.WebApi.Mappers
             CreateMap<Database.Recenzija, Model.Recenzija>();
             CreateMap<RecenzijaInsertRequest, Database.Recenzija>();
 
+
+            //CreateMap<Database.Notifikacije, Model.Notifikacije>();
+            //CreateMap<NotifikacijeInsertRequest, Database.Notifikacije>();
             CreateMap<Database.Notifikacije, Model.Notifikacije>();
             CreateMap<NotifikacijeInsertRequest, Database.Notifikacije>();
 
-            CreateMap<Database.GostiNotifikacije, Model.GostiNotifikacije>();
 
-            CreateMap<Database.OsobljeUloge, Model.OsobljeUloge>().ReverseMap();
+            //CreateMap<Database.Novosti, Model.Novosti>();
+            //CreateMap<NovostiInsertRequest, Database.Novosti>();
+            CreateMap<Database.Novosti, Model.Novosti>();
+            CreateMap<NovostiInsertRequest, Database.Novosti>();
+
+
+            //CreateMap<Database.GostiNotifikacije, Model.GostiNotifikacije>();
+            CreateMap<Database.GostiNotifikacije, Model.GostiNotifikacije>();
+            CreateMap<GostiNotifikacijeInsertRequest, Database.GostiNotifikacije>();
+
 
         }
     }

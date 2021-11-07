@@ -28,6 +28,10 @@ namespace SeminarskiRSII.WebApi.Services
                 {
                     query = query.Where(r => r.Ocjena == search.ocjena.Value);
                 }
+                if (search.BrojSobe.HasValue)
+                {
+                    query = query.Where(r => r.Soba.BrojSobe == search.BrojSobe.Value);
+                }
             }
             var list = query.ToList();
             return _mapper.Map<List<Model.Recenzija>>(list);

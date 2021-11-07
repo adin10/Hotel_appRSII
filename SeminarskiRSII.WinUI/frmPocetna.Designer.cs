@@ -70,11 +70,14 @@ namespace SeminarskiRSII.WinUI
             this.dodajNovuObavijestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.notifikacijeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listaSvihNotifikacijaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.izvjestajiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip
             // 
+            this.menuStrip.Dock = System.Windows.Forms.DockStyle.Left;
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.drzavaToolStripMenuItem,
             this.cjenovnikToolStripMenuItem,
@@ -88,12 +91,16 @@ namespace SeminarskiRSII.WinUI
             this.recenzijaToolStripMenuItem,
             this.osobljeToolStripMenuItem,
             this.novostiToolStripMenuItem,
-            this.notifikacijeToolStripMenuItem});
+            this.notifikacijeToolStripMenuItem,
+            this.izvjestajiToolStripMenuItem});
+            this.menuStrip.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow;
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(963, 24);
+            this.menuStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.menuStrip.Size = new System.Drawing.Size(96, 755);
             this.menuStrip.TabIndex = 4;
             this.menuStrip.Text = "MenuStrip";
+            this.menuStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip_ItemClicked);
             // 
             // drzavaToolStripMenuItem
             // 
@@ -107,14 +114,14 @@ namespace SeminarskiRSII.WinUI
             // listaDrzavaToolStripMenuItem
             // 
             this.listaDrzavaToolStripMenuItem.Name = "listaDrzavaToolStripMenuItem";
-            this.listaDrzavaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.listaDrzavaToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.listaDrzavaToolStripMenuItem.Text = "Lista drzava";
             this.listaDrzavaToolStripMenuItem.Click += new System.EventHandler(this.listaDrzavaToolStripMenuItem_Click);
             // 
             // dodajNovuDrzavuToolStripMenuItem
             // 
             this.dodajNovuDrzavuToolStripMenuItem.Name = "dodajNovuDrzavuToolStripMenuItem";
-            this.dodajNovuDrzavuToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.dodajNovuDrzavuToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.dodajNovuDrzavuToolStripMenuItem.Text = "Dodaj novu drzavu";
             this.dodajNovuDrzavuToolStripMenuItem.Click += new System.EventHandler(this.dodajNovuDrzavuToolStripMenuItem_Click);
             // 
@@ -130,14 +137,14 @@ namespace SeminarskiRSII.WinUI
             // pregledCijenaToolStripMenuItem
             // 
             this.pregledCijenaToolStripMenuItem.Name = "pregledCijenaToolStripMenuItem";
-            this.pregledCijenaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pregledCijenaToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.pregledCijenaToolStripMenuItem.Text = "Pregled cijena";
             this.pregledCijenaToolStripMenuItem.Click += new System.EventHandler(this.pregledCijenaToolStripMenuItem_Click);
             // 
             // dodajNovuCijenuToolStripMenuItem
             // 
             this.dodajNovuCijenuToolStripMenuItem.Name = "dodajNovuCijenuToolStripMenuItem";
-            this.dodajNovuCijenuToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.dodajNovuCijenuToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.dodajNovuCijenuToolStripMenuItem.Text = "Dodaj novu cijenu";
             this.dodajNovuCijenuToolStripMenuItem.Click += new System.EventHandler(this.dodajNovuCijenuToolStripMenuItem_Click);
             // 
@@ -153,14 +160,14 @@ namespace SeminarskiRSII.WinUI
             // pregledStatusaToolStripMenuItem
             // 
             this.pregledStatusaToolStripMenuItem.Name = "pregledStatusaToolStripMenuItem";
-            this.pregledStatusaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pregledStatusaToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.pregledStatusaToolStripMenuItem.Text = "Pregled statusa";
             this.pregledStatusaToolStripMenuItem.Click += new System.EventHandler(this.pregledStatusaToolStripMenuItem_Click);
             // 
             // dodajNoviStatusToolStripMenuItem
             // 
             this.dodajNoviStatusToolStripMenuItem.Name = "dodajNoviStatusToolStripMenuItem";
-            this.dodajNoviStatusToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.dodajNoviStatusToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.dodajNoviStatusToolStripMenuItem.Text = "Dodaj novi status";
             this.dodajNoviStatusToolStripMenuItem.Click += new System.EventHandler(this.dodajNoviStatusToolStripMenuItem_Click);
             // 
@@ -176,14 +183,14 @@ namespace SeminarskiRSII.WinUI
             // listaGradovaToolStripMenuItem
             // 
             this.listaGradovaToolStripMenuItem.Name = "listaGradovaToolStripMenuItem";
-            this.listaGradovaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.listaGradovaToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.listaGradovaToolStripMenuItem.Text = "Lista gradova";
             this.listaGradovaToolStripMenuItem.Click += new System.EventHandler(this.listaGradovaToolStripMenuItem_Click);
             // 
             // dodajNoviGradToolStripMenuItem
             // 
             this.dodajNoviGradToolStripMenuItem.Name = "dodajNoviGradToolStripMenuItem";
-            this.dodajNoviGradToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.dodajNoviGradToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.dodajNoviGradToolStripMenuItem.Text = "Dodaj novi grad";
             this.dodajNoviGradToolStripMenuItem.Click += new System.EventHandler(this.dodajNoviGradToolStripMenuItem_Click);
             // 
@@ -199,14 +206,14 @@ namespace SeminarskiRSII.WinUI
             // listaSvihGostijuToolStripMenuItem
             // 
             this.listaSvihGostijuToolStripMenuItem.Name = "listaSvihGostijuToolStripMenuItem";
-            this.listaSvihGostijuToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.listaSvihGostijuToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.listaSvihGostijuToolStripMenuItem.Text = "Lista svih gostiju";
             this.listaSvihGostijuToolStripMenuItem.Click += new System.EventHandler(this.listaSvihGostijuToolStripMenuItem_Click);
             // 
             // dodajNovogGostaToolStripMenuItem
             // 
             this.dodajNovogGostaToolStripMenuItem.Name = "dodajNovogGostaToolStripMenuItem";
-            this.dodajNovogGostaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.dodajNovogGostaToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.dodajNovogGostaToolStripMenuItem.Text = "Dodaj novog gosta";
             this.dodajNovogGostaToolStripMenuItem.Click += new System.EventHandler(this.dodajNovogGostaToolStripMenuItem_Click);
             // 
@@ -222,14 +229,14 @@ namespace SeminarskiRSII.WinUI
             // sveSobeToolStripMenuItem
             // 
             this.sveSobeToolStripMenuItem.Name = "sveSobeToolStripMenuItem";
-            this.sveSobeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sveSobeToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.sveSobeToolStripMenuItem.Text = "Sve sobe";
             this.sveSobeToolStripMenuItem.Click += new System.EventHandler(this.sveSobeToolStripMenuItem_Click);
             // 
             // dodajNovuSobuToolStripMenuItem
             // 
             this.dodajNovuSobuToolStripMenuItem.Name = "dodajNovuSobuToolStripMenuItem";
-            this.dodajNovuSobuToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.dodajNovuSobuToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.dodajNovuSobuToolStripMenuItem.Text = "Dodaj novu sobu";
             this.dodajNovuSobuToolStripMenuItem.Click += new System.EventHandler(this.dodajNovuSobuToolStripMenuItem_Click);
             // 
@@ -337,14 +344,14 @@ namespace SeminarskiRSII.WinUI
             // listaUposlenihToolStripMenuItem
             // 
             this.listaUposlenihToolStripMenuItem.Name = "listaUposlenihToolStripMenuItem";
-            this.listaUposlenihToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.listaUposlenihToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.listaUposlenihToolStripMenuItem.Text = "Lista uposlenih";
             this.listaUposlenihToolStripMenuItem.Click += new System.EventHandler(this.listaUposlenihToolStripMenuItem_Click);
             // 
             // dodajUposlenikaToolStripMenuItem
             // 
             this.dodajUposlenikaToolStripMenuItem.Name = "dodajUposlenikaToolStripMenuItem";
-            this.dodajUposlenikaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.dodajUposlenikaToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.dodajUposlenikaToolStripMenuItem.Text = "Dodaj uposlenika";
             this.dodajUposlenikaToolStripMenuItem.Click += new System.EventHandler(this.dodajUposlenikaToolStripMenuItem_Click);
             // 
@@ -386,15 +393,33 @@ namespace SeminarskiRSII.WinUI
             this.listaSvihNotifikacijaToolStripMenuItem.Text = "Lista svih notifikacija";
             this.listaSvihNotifikacijaToolStripMenuItem.Click += new System.EventHandler(this.listaSvihNotifikacijaToolStripMenuItem_Click);
             // 
+            // izvjestajiToolStripMenuItem
+            // 
+            this.izvjestajiToolStripMenuItem.Name = "izvjestajiToolStripMenuItem";
+            this.izvjestajiToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
+            this.izvjestajiToolStripMenuItem.Text = "Izvjestaji";
+            this.izvjestajiToolStripMenuItem.Click += new System.EventHandler(this.izvjestajiToolStripMenuItem_Click);
+            // 
+            // statusStrip
+            // 
+            this.statusStrip.Location = new System.Drawing.Point(96, 733);
+            this.statusStrip.Name = "statusStrip";
+            this.statusStrip.Size = new System.Drawing.Size(1194, 22);
+            this.statusStrip.TabIndex = 6;
+            this.statusStrip.Text = "statusStrip1";
+            // 
             // frmPocetna
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(963, 521);
+            this.ClientSize = new System.Drawing.Size(1290, 755);
+            this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.menuStrip);
             this.IsMdiContainer = true;
+            this.MainMenuStrip = this.menuStrip;
             this.Name = "frmPocetna";
             this.Text = "frmPocetna";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmPocetna_Load);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
@@ -443,6 +468,8 @@ namespace SeminarskiRSII.WinUI
         private System.Windows.Forms.ToolStripMenuItem dodajNovuObavijestToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem notifikacijeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listaSvihNotifikacijaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem izvjestajiToolStripMenuItem;
+        private System.Windows.Forms.StatusStrip statusStrip;
     }
 }
 

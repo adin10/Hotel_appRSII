@@ -19,6 +19,15 @@ namespace SeminarskiRSII.WebApi.Services
             _context = context;
             _mapper = mapper;
         }
+
+        public Model.Cjenovnik Delete(int id)
+        {
+            var entity = _context.Cjenovnik.Find(id);
+            _context.Cjenovnik.Remove(entity);
+            _context.SaveChanges();
+            return _mapper.Map<Model.Cjenovnik>(entity);
+        }
+
         public List<Model.Cjenovnik> get()
         {
             var list = _context.Cjenovnik.Include(s => s.Soba).ToList();

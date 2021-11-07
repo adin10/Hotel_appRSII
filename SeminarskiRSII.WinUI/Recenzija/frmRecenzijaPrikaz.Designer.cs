@@ -125,7 +125,7 @@ namespace SeminarskiRSII.WinUI.Recenzija
             // 
             this.Soba.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Soba.DataPropertyName = "soba";
-            this.Soba.HeaderText = "Soba";
+            this.Soba.HeaderText = "Soba broj";
             this.Soba.Name = "Soba";
             this.Soba.ReadOnly = true;
             // 

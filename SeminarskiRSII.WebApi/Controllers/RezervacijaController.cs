@@ -20,9 +20,9 @@ namespace SeminarskiRSII.WebApi.Controllers
             _service = service;
         }
         [HttpGet]
-        public ActionResult<List<Model.Rezervacija>> Get(/*RezervacijaSearchRequest search*/)
+        public ActionResult<List<Model.Rezervacija>> Get([FromQuery] RezervacijaSearchRequest search)
         {
-            return _service.get(/*search*/);
+            return _service.get(search);
         }
         [HttpGet("{id}")]
         public ActionResult<Model.Rezervacija> GetByID(int id)
@@ -38,6 +38,11 @@ namespace SeminarskiRSII.WebApi.Controllers
         public Model.Rezervacija Update(int id, RezervacijaInsertRequest update)
         {
             return _service.Update(id, update);
+        }
+        [HttpDelete("{id}")]
+        public Model.Rezervacija Delete(int id)
+        {
+            return _service.Delete(id);
         }
     }
 }

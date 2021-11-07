@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:vm="clr-namespace:HotelRSII.Project.ViewModels"
+             mc:Ignorable="d"
+             x:Class="HotelRSII.Project.Views.LoginPage"
+             Shell.NavBarIsVisible="False">
+    <ContentPage.BindingContext>
+        <vm:LoginViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout Padding="10,0,10,0" VerticalOptions="Center">
+            <Label HorizontalOptions="Center" VerticalOptions="Center" Text="Hotel AS" FontSize="Large"></Label>
+            <Label></Label>
+
+            <Label Text="Korisničko ime:"></Label>
+            <Entry Text="{Binding Username}"></Entry>
+            <Label/>
+            <Label Text="Lozinka:"></Label>
+            <Entry Text="{Binding Password}" IsPassword="True"></Entry>
+            <Button Command="{Binding PrijaviSeCommand}" BackgroundColor="LightBlue" TextColor="White" Text="Prijavi se"/>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                <Label VerticalOptions="CenterAndExpand">Nemate korisnički nalog?</Label>
+                <Button Command="{Binding RegistrirajSeCommand}" BackgroundColor="LightBlue" TextColor="White" Text="Registriraj se"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

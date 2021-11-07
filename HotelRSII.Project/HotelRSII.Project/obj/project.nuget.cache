@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "dgSpecHash": "25aFJ/c+HlKaex7uoBWfB1WgaENqyIgdJ9nyOLJgU9SG7vGEJXGwHK6c1gh2pvqfnwDbCIt5cVzESGK46YEvbw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Adin\\source\\repos\\SeminarskiRSII\\HotelRSII.Project\\HotelRSII.Project\\HotelRSII.Project.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Adin\\.nuget\\packages\\flurl\\2.8.2\\flurl.2.8.2.nupkg.sha512",
+    "C:\\Users\\Adin\\.nuget\\packages\\flurl.http\\2.4.2\\flurl.http.2.4.2.nupkg.sha512",
+    "C:\\Users\\Adin\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\Adin\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\Adin\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\Adin\\.nuget\\packages\\system.componentmodel.annotations\\4.7.0\\system.componentmodel.annotations.4.7.0.nupkg.sha512",
+    "C:\\Users\\Adin\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\Adin\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.2\\system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512",
+    "C:\\Users\\Adin\\.nuget\\packages\\system.text.encoding.codepages\\4.5.1\\system.text.encoding.codepages.4.5.1.nupkg.sha512",
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.essentials\\1.6.1\\xamarin.essentials.1.6.1.nupkg.sha512",
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.forms\\5.0.0.2012\\xamarin.forms.5.0.0.2012.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -19,6 +19,15 @@ namespace SeminarskiRSII.WebApi.Services
             _context = context;
             _mapper = mapper;
         }
+
+        public Model.SobaOsoblje Delete(int id)
+        {
+            var entity = _context.SobaOsoblje.Find(id);
+            _context.SobaOsoblje.Remove(entity);
+            _context.SaveChanges();
+            return _mapper.Map<Model.SobaOsoblje>(entity);
+        }
+
         public List<Model.SobaOsoblje> get()
         {
             var list = _context.SobaOsoblje.Include(s => s.Soba).Include(o => o.Osoblje).ToList();

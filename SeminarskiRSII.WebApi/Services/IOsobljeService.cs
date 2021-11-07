@@ -12,5 +12,8 @@ namespace SeminarskiRSII.WebApi.Services
         Model.Osoblje getByID(int id);
         Model.Osoblje Insert(OsobljeInsertRequest insert);
         Model.Osoblje Update(int id, OsobljeInsertRequest update);
+        Model.Osoblje Authenticiraj(string username, string pass);
+        
+
     }
 }

@@ -8,9 +8,10 @@ namespace SeminarskiRSII.WebApi.Services
 {
    public interface IRezervacijaService
     {
-        List<Model.Rezervacija> get(/*RezervacijaSearchRequest search*/);
+        List<Model.Rezervacija> get(RezervacijaSearchRequest search);
         Model.Rezervacija getByID(int id);
         Model.Rezervacija Insert(RezervacijaInsertRequest insert);
         Model.Rezervacija Update(int id, RezervacijaInsertRequest update);
+        Model.Rezervacija Delete(int id);
     }
 }

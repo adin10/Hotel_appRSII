@@ -38,5 +38,10 @@ namespace SeminarskiRSII.WebApi.Controllers
         {
             return _service.Update(id, update);
         }
+        [HttpDelete("{id}")]
+        public Model.Cjenovnik Delete(int id)
+        {
+            return _service.Delete(id);
+        }
     }
 }

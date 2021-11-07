@@ -24,7 +24,7 @@ namespace SeminarskiRSII.WinUI.Rezervacija
         {
             var search = new RezervacijaSearchRequest()
             {
-                sobaID = int.Parse(txtPretraga.Text)
+                BrojSobe = int.Parse(txtPretraga.Text)
             };
             var list = await _service.get<List<Model.Rezervacija>>(search);
             dgwRezervacije.DataSource = list;

@@ -8,7 +8,7 @@ namespace SeminarskiRSII.Model.Requests
     {
         public string Naslov { get; set; }
         public string Sadrzaj { get; set; }
-        public DateTime DatumObjave { get; set; }
+        public DateTime? DatumObjave { get; set; }
         public int? OsobljeId { get; set; }
     }
 }

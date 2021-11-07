@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:vm="clr-namespace:HotelRSII.Project.ViewModels"
+             x:Class="HotelRSII.Project.Views.NotifikacijePage">
+    <ContentPage.BindingContext>
+        <vm:NotifikacijeViewModel></vm:NotifikacijeViewModel>    
+    </ContentPage.BindingContext>
+<ContentPage.Content>
+        <StackLayout>
+            <StackLayout>
+            <ListView ItemsSource="{Binding NotifikacijeList }" ItemSelected="ListView_ItemSelected" >
+                    <ListView.ItemTemplate>
+                        <DataTemplate >
+                            <ViewCell>
+                                <ContentView>
+                                    <ContentView.Content>
+                                        <StackLayout >
+                                            <Grid BackgroundColor="Gray" Margin="5" >
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto"></RowDefinition>
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+
+                                                <StackLayout HorizontalOptions="Center" Padding="5" >
+                                                    <Label TextColor="White" FontSize="18" Text="{Binding Naslov}"></Label>
+                                                </StackLayout>
+
+                                                <StackLayout Grid.Column="1" HorizontalOptions="Center" Padding="5">
+                                                    <Label TextColor="White" Grid.Column="1" Text="{Binding DatumSlanja}"></Label>
+                                                </StackLayout>
+                                            </Grid>
+                                        </StackLayout>
+                                    </ContentView.Content>
+                                </ContentView>
+                            </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

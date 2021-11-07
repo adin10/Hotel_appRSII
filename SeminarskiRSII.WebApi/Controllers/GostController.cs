@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
 namespace SeminarskiRSII.WebApi.Controllers
 {
@@ -34,6 +35,7 @@ namespace SeminarskiRSII.WebApi.Controllers
         {
             return _service.Insert(request);
         }
+        [Authorize]
         [HttpPut("{id}")]
         public Model.Gost Update(int id, GostiInsertRequest request)
         {

@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewmodels="clr-namespace:HotelRSII.Project.ViewModels" x:DataType="viewmodels:RecenzijaViewModel"
+             x:Class="HotelRSII.Project.Views.RecenzijaPage">
+    <ContentPage.Content>
+        <StackLayout  VerticalOptions="CenterAndExpand">
+            <Label Grid.ColumnSpan="2" TextColor="#009BDB" HorizontalOptions="Center" FontSize="22">Ostavite Vasu recenziju</Label>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+
+
+                <Label Margin ="10, 0, 0, 0" VerticalTextAlignment="Center" Grid.Row="0">Gost</Label>
+                <!--<Picker  ItemsSource="{Binding gostiList }"  SelectedItem="{Binding gost}" Grid.Row="0" Grid.Column="1"></Picker>-->
+                <Entry Text="{Binding gost}"  Grid.Row="0" Grid.Column="1" IsReadOnly="True"></Entry>
+
+
+                <Label Margin ="10, 0, 0, 0" VerticalTextAlignment="Center" Grid.Row="1">Soba broj:</Label>
+                <Picker ItemsSource="{Binding sobeList }" SelectedItem="{Binding SelectedSoba}" Grid.Row="1" Grid.Column="1"></Picker>
+
+                <Label Margin ="10, 0, 0, 0" VerticalTextAlignment="Center" Grid.Row="2">Ocjena</Label>
+                <Entry x:Name="Ocjena" Text="{Binding Ocjena}" Grid.Row="2"  Grid.Column="1"></Entry>
+
+                <Label  Margin ="10, 0, 0, 0" VerticalTextAlignment="Center" Grid.Row="3">Komentar</Label>
+                <Entry x:Name="Komentar" Text="{Binding Komentar}" Grid.Row="3"  Grid.Column="1"></Entry>
+
+            </Grid>
+            <Label/>
+            <StackLayout>
+                <!--<Button x:Name="RegistrujSe"  BackgroundColor="LightBlue" TextColor="White" Clicked="RegistrujSe_Clicked" Text="Registruj se"></Button>-->
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" >
+                    <!--<Label  TextColor="#009BDB" Text="Imate korisnički nalog?" VerticalTextAlignment="Center"/>-->
+
+                    <Button BackgroundColor="LightBlue" FontSize="22" TextColor="White" Command="{Binding RecenzijaCommand}" Text="Ostavite recenziju"></Button>
+                </StackLayout>
+
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

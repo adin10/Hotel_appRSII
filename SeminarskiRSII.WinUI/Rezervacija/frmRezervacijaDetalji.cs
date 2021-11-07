@@ -55,7 +55,7 @@ namespace SeminarskiRSII.WinUI.Rezervacija
             rezervacija.ZavrsetakRezervacije = dtpZavrsetak.Value;
             if (_id.HasValue)
             {
-                await _service.Update<Model.Rezervacija>(_id.HasValue, rezervacija);
+                await _service.Update<Model.Rezervacija>(_id, rezervacija);
                 MessageBox.Show("Uspjesno ste izmijenili podatke ");
             }
             else

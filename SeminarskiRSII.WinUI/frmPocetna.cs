@@ -2,6 +2,7 @@
 using SeminarskiRSII.WinUI.Drzava;
 using SeminarskiRSII.WinUI.Gost;
 using SeminarskiRSII.WinUI.Grad;
+using SeminarskiRSII.WinUI.Izvjestaji;
 using SeminarskiRSII.WinUI.Notifikacije;
 using SeminarskiRSII.WinUI.Novosti;
 using SeminarskiRSII.WinUI.Osoblje;
@@ -274,6 +275,17 @@ namespace SeminarskiRSII.WinUI
         private void listaSvihNotifikacijaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmNotifikacijePrikaz frm = new frmNotifikacijePrikaz();
+            frm.Show();
+        }
+
+        private void menuStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void izvjestajiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmOdabir frm = new frmOdabir();
             frm.Show();
         }
     }
